@@ -25,6 +25,8 @@ const sideDish = [
   { name: "Siomay", price: 14000 },
 ];
 
+let cart = [];
+
 mainMenu();
 
 function mainMenu() {
@@ -73,4 +75,39 @@ function showItems(menu, categoryName) {
   for (let i = 0; i < menu.length; i++) {
     console.log(`${i + 1}. ${menu[i].name} - Rp.${menu[i].price}`);
   }
+
+  console.log(`${menu.length + 1}. Back`);
+
+  rl.question("Select Menu: ", function (ans) {
+    let choice = Number(ans);
+    switch (choice) {
+      case menu.length + 1:
+        catergoryMenu();
+        break;
+      default:
+        if (choice >= 1 && choice <= menu.length) {
+          const selectedItem = menu[choice - 1];
+
+          rl.question("Amount: ", function (ans) {
+            let qty = Number(ans);
+            if (isNaN(qty) || qty < 1) {
+              console.log("Input Amount and should be a number");
+              return showItems(menu, categoryName);
+            }
+
+            cart.push({
+              name: selectedItem.name,
+              price: selectedItem.price,
+              amount: qty,
+              subtotal: qty * selectedItem.price,
+            });
+            console.log(`${selectedItem.name} x${qty} added successfully`);
+            mainMenu();
+          });
+        } else {
+          console.log("Invalid Items Option");
+          showItems(menu, categoryName);
+        }
+    }
+  });
 }
