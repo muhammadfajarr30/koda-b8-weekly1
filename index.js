@@ -11,6 +11,13 @@ const foods = [
   { name: "Mie Hompimpa", price: 12000 },
 ];
 
+const drinks = [
+  { name: "Air Mineral", price: 6500 },
+  { name: "Tea", price: 6500 },
+  { name: "Lemon Tea", price: 9500 },
+  { name: "Orange", price: 8000 },
+];
+
 mainMenu();
 
 function mainMenu() {
@@ -32,11 +39,15 @@ function mainMenu() {
 function catergoryMenu() {
   console.log("\n=== SELECT CATEGORY ===");
   console.log("1. NOODLES");
+  console.log("2. BEVERAGES");
 
   rl.question("Select Category: ", function (ans) {
     switch (ans) {
       case "1":
         showItems(foods, "NOODLES");
+        break;
+      case "2":
+        showItems(drinks, "BEVERAGES");
         break;
       default:
         console.log("Invalid Category Option");
