@@ -18,6 +18,13 @@ const drinks = [
   { name: "Orange", price: 8000 },
 ];
 
+const sideDish = [
+  { name: "Lumpia Udang", price: 14000 },
+  { name: "Udang Keju", price: 14000 },
+  { name: "Udang Rambutan", price: 14000 },
+  { name: "Siomay", price: 14000 },
+];
+
 mainMenu();
 
 function mainMenu() {
@@ -40,6 +47,7 @@ function catergoryMenu() {
   console.log("\n=== SELECT CATEGORY ===");
   console.log("1. NOODLES");
   console.log("2. BEVERAGES");
+  console.log("3. SIDE DISH");
 
   rl.question("Select Category: ", function (ans) {
     switch (ans) {
@@ -48,6 +56,9 @@ function catergoryMenu() {
         break;
       case "2":
         showItems(drinks, "BEVERAGES");
+        break;
+      case "3":
+        showItems(sideDish, "DIMSUM");
         break;
       default:
         console.log("Invalid Category Option");
