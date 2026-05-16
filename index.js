@@ -33,6 +33,8 @@ function mainMenu() {
   console.log("\n=== MIE GACOAN ===");
   console.log("1. Category Menu");
   console.log("2. Cart");
+  console.log("3. Checkout");
+  console.log("4. Exit");
 
   rl.question("Select Option: ", function (ans) {
     switch (ans) {
@@ -42,6 +44,11 @@ function mainMenu() {
       case "2":
         showCart();
         break;
+      case "3":
+        checkout();
+        break;
+      case "4":
+        console.log("Thank You, See You Again!");
       default:
         console.log("Invalid Option!");
         mainMenu();
@@ -131,4 +138,19 @@ function showCart() {
     }
   }
   mainMenu();
+}
+
+function checkout() {
+  console.log(`\n=== CHECKOUT ===`);
+
+  let total = 0;
+  for (let i = 0; i < cart.length; i++) {
+    console.log(
+      `${i + 1}. ${cart[i].name} x${cart[i].amount} Rp.${cart[i].subtotal}`,
+    );
+    total += cart[i].subtotal;
+  }
+  console.log(`Total Price: Rp.${total}`);
+  console.log("Thank You For Your Order :) !");
+  rl.close();
 }
