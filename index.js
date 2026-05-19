@@ -61,6 +61,7 @@ function catergoryMenu() {
   console.log("1. NOODLES");
   console.log("2. BEVERAGES");
   console.log("3. SIDE DISH");
+  console.log("4. Back");
 
   rl.question("Select Category: ", function (ans) {
     switch (ans) {
@@ -72,6 +73,9 @@ function catergoryMenu() {
         break;
       case "3":
         showItems(sideDish, "DIMSUM");
+        break;
+      case "4":
+        mainMenu();
         break;
       default:
         console.log("Invalid Category Option");
@@ -113,7 +117,7 @@ function showItems(menu, categoryName) {
               subtotal: amount * selectedItem.price,
             });
             console.log(`${selectedItem.name} x${amount} added successfully`);
-            mainMenu();
+            catergoryMenu();
           });
         } else {
           console.log("Invalid Items Option");
@@ -143,6 +147,11 @@ function showCart() {
 function checkout() {
   console.log(`\n=== CHECKOUT ===`);
 
+  if (cart.length === 0) {
+    console.log("you have not order yet!");
+    return mainMenu();
+  }
+
   let total = 0;
   for (let i = 0; i < cart.length; i++) {
     console.log(
@@ -150,7 +159,22 @@ function checkout() {
     );
     total += cart[i].subtotal;
   }
+
   console.log(`Total Price: Rp.${total}`);
-  console.log("Thank You For Your Order :) !");
-  rl.close();
+
+  rl.question("Input money: ", function (ans) {
+    let payment = Number(ans);
+    if (isNaN(payment) || payment <= 0) {
+      console.log("Payment must be a number");
+      return checkout();
+    }
+    if (payment < total) {
+      console.log(`Insufficient money! less Rp. ${total - payment} `);
+      return checkout();
+    }
+    let change = payment - total;
+    console.log(`Change: ${change}`);
+    console.log("Thank You For Your Order :) !");
+    rl.close();
+  });
 }
