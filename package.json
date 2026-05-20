@@ -1,0 +1,26 @@
+{
+  "name": "week1-weekly1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhammadfajarr30/koda-b8-weekly1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/muhammadfajarr30/koda-b8-weekly1/issues"
+  },
+  "homepage": "https://github.com/muhammadfajarr30/koda-b8-weekly1#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.4.0",
+    "globals": "^17.6.0"
+  }
+}
