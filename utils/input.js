@@ -5,12 +5,13 @@ const rl = createInterface({
   output: process.stdout,
 });
 
-export function ask(question) {
+function ask(question) {
   return new Promise((resolve) => {
     rl.question(question, resolve);
   });
 }
-
-export function close() {
+function close() {
   rl.close();
 }
+
+export { ask, close };
