@@ -1,29 +1,17 @@
-const { createInterface } = require("node:readline");
-
+import { createInterface } from "node:readline";
+import menu from "./menu.json" with { type: "json" };
 const rl = createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-const foods = [
-  { name: "Mie Gacoan", price: 10000 },
-  { name: "Mie Suit", price: 11000 },
-  { name: "Mie Hompimpa", price: 12000 },
-];
+const foods = [];
+const drinks = [];
+const sideDish = [];
 
-const drinks = [
-  { name: "Air Mineral", price: 6500 },
-  { name: "Tea", price: 6500 },
-  { name: "Lemon Tea", price: 9500 },
-  { name: "Orange", price: 8000 },
-];
-
-const sideDish = [
-  { name: "Lumpia Udang", price: 14000 },
-  { name: "Udang Keju", price: 14000 },
-  { name: "Udang Rambutan", price: 14000 },
-  { name: "Siomay", price: 14000 },
-];
+foods.push(...menu.foods);
+drinks.push(...menu.drinks);
+sideDish.push(...menu.sideDish);
 
 let cart = [];
 
@@ -49,6 +37,8 @@ function mainMenu() {
         break;
       case "4":
         console.log("Thank You, See You Again!");
+        rl.close();
+        break;
       default:
         console.log("Invalid Option!");
         mainMenu();

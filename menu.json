@@ -1,0 +1,20 @@
+{
+    "foods" : [
+    { "name": "Mie Gacoan", "price": 10000 },
+  { "name": "Mie Suit", "price": 11000 },
+  { "name": "Mie Hompimpa", "price": 12000 }
+    ],
+
+    "drinks" : [
+    { "name": "Air Mineral", "price": 6500 },
+    { "name": "Tea", "price": 6500 },
+    { "name": "Lemon Tea", "price": 9500 },
+    { "name": "Orange", "price": 8000 }
+    ],
+    "sideDish": [
+    { "name": "Lumpia Udang", "price": 14000 },
+    { "name": "Udang Keju", "price": 14000 },
+    { "name": "Udang Rambutan", "price": 14000 },
+    { "name": "Siomay", "price": 14000 }
+    ]
+}
