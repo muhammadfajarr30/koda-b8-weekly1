@@ -1,5 +1,9 @@
 import { mainMenu } from "../index.js";
-import { cart } from "../index.js";
+const cart = [];
+
+function addToCart(item) {
+  cart.push(item);
+}
 
 function showCart() {
   console.log("\n=== CART ===");
@@ -19,4 +23,4 @@ function showCart() {
   mainMenu();
 }
 
-export { showCart };
+export { showCart, addToCart, cart };

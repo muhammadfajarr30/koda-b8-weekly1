@@ -1,7 +1,7 @@
 import { ask } from "../utils/input.js";
 import { categoryMenu } from "./category.js";
 import { mainMenu } from "../index.js";
-import { cart } from "../index.js";
+import { addToCart } from "./cart.js";
 
 // let cart = [];
 async function showItems(menu, categoryName) {
@@ -31,7 +31,7 @@ async function showItems(menu, categoryName) {
           return showItems(menu, categoryName);
         }
 
-        cart.push({
+        addToCart({
           name: selectedItem.name,
           price: selectedItem.price,
           amount: amount,

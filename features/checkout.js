@@ -1,5 +1,5 @@
 import { ask } from "../utils/input.js";
-import { cart } from "../index.js";
+import { cart } from "./cart.js";
 import { mainMenu } from "../index.js";
 import { categoryMenu } from "./category.js";
 import { payment } from "./payment.js";

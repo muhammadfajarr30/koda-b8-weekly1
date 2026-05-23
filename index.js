@@ -4,8 +4,6 @@ import { categoryMenu } from "./features/category.js";
 import { showCart } from "./features/cart.js";
 import { checkout } from "./features/checkout.js";
 
-export let cart = [];
-
 mainMenu();
 
 async function mainMenu() {
