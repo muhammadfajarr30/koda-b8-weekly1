@@ -1,5 +1,5 @@
 import { ask } from "../utils/input.js";
-import { catergoryMenu } from "./category.js";
+import { categoryMenu } from "./category.js";
 import { mainMenu } from "../index.js";
 import { cart } from "../index.js";
 
@@ -18,7 +18,7 @@ async function showItems(menu, categoryName) {
   const choice = Number(input);
   switch (choice) {
     case menu.length + 1:
-      catergoryMenu();
+      categoryMenu();
       break;
     default:
       if (choice >= 1 && choice <= menu.length) {
@@ -38,7 +38,7 @@ async function showItems(menu, categoryName) {
           subtotal: amount * selectedItem.price,
         });
         console.log(`${selectedItem.name} x${amount} added successfully`);
-        await catergoryMenu();
+        await categoryMenu();
       } else {
         console.log("Invalid Items Option");
         showItems(menu, categoryName);

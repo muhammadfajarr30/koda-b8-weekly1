@@ -1,5 +1,5 @@
 import { ask, close } from "../utils/input.js";
-import { total } from "./checkout.js";
+import { total, checkout } from "./checkout.js";
 
 async function payment() {
   const inputMoney = await ask("Input Money : ");

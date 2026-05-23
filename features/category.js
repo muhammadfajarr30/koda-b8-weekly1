@@ -12,7 +12,7 @@ foods.push(...menu.foods);
 drinks.push(...menu.drinks);
 sideDish.push(...menu.sideDish);
 
-async function catergoryMenu() {
+async function categoryMenu() {
   console.log("\n=== SELECT CATEGORY ===");
   console.log("1. NOODLES");
   console.log("2. BEVERAGES");
@@ -40,7 +40,7 @@ async function catergoryMenu() {
       break;
     default:
       console.log("Invalid Category Option");
-      catergoryMenu();
+      categoryMenu();
   }
 }
-export { catergoryMenu };
+export { categoryMenu };

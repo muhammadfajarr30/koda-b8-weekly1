@@ -1,6 +1,6 @@
 import menu from "./menu.json" with { type: "json" };
 import { ask, close } from "./utils/input.js";
-import { catergoryMenu } from "./features/category.js";
+import { categoryMenu } from "./features/category.js";
 import { showCart } from "./features/cart.js";
 import { checkout } from "./features/checkout.js";
 
@@ -20,7 +20,7 @@ async function mainMenu() {
   const ans = await ask("select Option: ");
   switch (ans) {
     case "1":
-      catergoryMenu();
+      categoryMenu();
       break;
     case "2":
       showCart();

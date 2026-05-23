@@ -1,7 +1,7 @@
 import { ask } from "../utils/input.js";
 import { cart } from "../index.js";
 import { mainMenu } from "../index.js";
-import { catergoryMenu } from "./category.js";
+import { categoryMenu } from "./category.js";
 import { payment } from "./payment.js";
 
 export let total = 0;
@@ -30,7 +30,7 @@ async function checkout() {
       payment();
       break;
     case "n":
-      catergoryMenu();
+      categoryMenu();
       break;
     default:
       console.log("Invalid Answer!");
