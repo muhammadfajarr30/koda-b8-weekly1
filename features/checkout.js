@@ -1,12 +1,10 @@
 import { ask } from "../utils/input.js";
-import { calculateTotal, cart } from "./cart.js";
+import { cart, printCartAndTotal } from "./cart.js";
 import { mainMenu } from "../index.js";
 import { categoryMenu } from "./category.js";
 import { payment } from "./payment.js";
 
 async function checkout() {
-  const total = calculateTotal();
-
   console.log(`\n======== CHECKOUT ========`);
 
   if (cart.length === 0) {
@@ -14,13 +12,7 @@ async function checkout() {
     return mainMenu();
   }
 
-  for (let i = 0; i < cart.length; i++) {
-    console.log(
-      `${i + 1}. ${cart[i].name} x${cart[i].amount} Rp.${cart[i].subtotal}`,
-    );
-  }
-
-  console.log(`Total Price: Rp.${total}`);
+  printCartAndTotal();
   console.log("===========================");
   const askOrderedItem = await ask(
     "Let us know if these are the correct items(y/n):  ",

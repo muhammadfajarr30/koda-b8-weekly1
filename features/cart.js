@@ -9,22 +9,25 @@ function addToCart(item) {
   cart.push(item);
 }
 
+function printCartAndTotal() {
+  const total = calculateTotal();
+  cart.forEach((item, index) => {
+    console.log(
+      `${index + 1}. ${item.name} x${item.amount} Rp.${item.subtotal}`,
+    );
+  });
+  console.log(`Total Order: ${total}`);
+}
+
 function showCart() {
   console.log("\n=== CART ===");
   if (cart.length == 0) {
     console.log("Cart can't be empty!");
   } else {
-    let total = 0;
-    for (let i = 0; i < cart.length; i++) {
-      console.log(
-        `${i + 1}. ${cart[i].name} x${cart[i].amount} Rp.${cart[i].subtotal}`,
-      );
-      total += cart[i].subtotal;
-      console.log(`Total Order: ${total}`);
-    }
+    printCartAndTotal();
   }
 
   mainMenu();
 }
 
-export { showCart, addToCart, cart, calculateTotal };
+export { showCart, addToCart, cart, calculateTotal, printCartAndTotal };
