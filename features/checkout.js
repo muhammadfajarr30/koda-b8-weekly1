@@ -1,11 +1,12 @@
 import { ask } from "../utils/input.js";
-import { cart } from "./cart.js";
+import { calculateTotal, cart } from "./cart.js";
 import { mainMenu } from "../index.js";
 import { categoryMenu } from "./category.js";
 import { payment } from "./payment.js";
 
-export let total = 0;
 async function checkout() {
+  const total = calculateTotal();
+
   console.log(`\n======== CHECKOUT ========`);
 
   if (cart.length === 0) {
@@ -17,7 +18,6 @@ async function checkout() {
     console.log(
       `${i + 1}. ${cart[i].name} x${cart[i].amount} Rp.${cart[i].subtotal}`,
     );
-    total += cart[i].subtotal;
   }
 
   console.log(`Total Price: Rp.${total}`);

@@ -1,7 +1,10 @@
 import { ask, close } from "../utils/input.js";
-import { total, checkout } from "./checkout.js";
+import { calculateTotal } from "./cart.js";
+import { checkout } from "./checkout.js";
 
 async function payment() {
+  const total = calculateTotal();
+
   const inputMoney = await ask("Input Money : ");
   const payment = Number(inputMoney);
   if (isNaN(payment) || payment <= 0) {

@@ -1,6 +1,10 @@
 import { mainMenu } from "../index.js";
 const cart = [];
 
+function calculateTotal() {
+  return cart.reduce((sum, item) => sum + item.subtotal, 0);
+}
+
 function addToCart(item) {
   cart.push(item);
 }
@@ -23,4 +27,4 @@ function showCart() {
   mainMenu();
 }
 
-export { showCart, addToCart, cart };
+export { showCart, addToCart, cart, calculateTotal };
