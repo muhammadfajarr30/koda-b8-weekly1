@@ -13,7 +13,6 @@ export default defineConfig([
     files: ["**/*.js"],
     languageOptions: { sourceType: "module" },
     rules: {
-      semi: ["error, always"],
       indent: ["error", 2],
     },
   },

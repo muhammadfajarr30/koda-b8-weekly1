@@ -19,15 +19,15 @@ async function checkout() {
       "Let us know if these are the correct items(y/n):  ",
     );
     switch (askOrderedItem) {
-      case "y":
-        return payment();
-        break;
-      case "n":
-        return categoryMenu();
-        break;
-      default:
-        console.log("Invalid Answer!");
-        return checkout();
+    case "y":
+      return payment();
+      break;
+    case "n":
+      return categoryMenu();
+      break;
+    default:
+      console.log("Invalid Answer!");
+      return checkout();
     }
   } catch (error) {
     console.log(error);

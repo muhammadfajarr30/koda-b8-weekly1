@@ -24,24 +24,24 @@ async function categoryMenu() {
 
     const ans = await ask("Select Menu: ");
     switch (ans) {
-      case "1":
-        await showItems(foods, "NOODLES");
-        break;
-      case "2":
-        await showItems(drinks, "BEVERAGES");
-        break;
-      case "3":
-        await showItems(sideDish, "DIMSUM");
-        break;
-      case "4":
-        await checkout();
-        break;
-      case "5":
-        await mainMenu();
-        break;
-      default:
-        console.log("Invalid Category Option");
-        return categoryMenu();
+    case "1":
+      await showItems(foods, "NOODLES");
+      break;
+    case "2":
+      await showItems(drinks, "BEVERAGES");
+      break;
+    case "3":
+      await showItems(sideDish, "DIMSUM");
+      break;
+    case "4":
+      await checkout();
+      break;
+    case "5":
+      await mainMenu();
+      break;
+    default:
+      console.log("Invalid Category Option");
+      return categoryMenu();
     }
   } catch (error) {
     console.error(error);
@@ -62,31 +62,31 @@ async function showItems(menu, categoryName) {
 
     const choice = await askNumeral("Select Menu: ");
     switch (choice) {
-      case menu.length + 1:
-        categoryMenu();
-        break;
-      default:
-        if (choice >= 1 && choice <= menu.length) {
-          const selectedItem = menu[choice - 1];
+    case menu.length + 1:
+      categoryMenu();
+      break;
+    default:
+      if (choice >= 1 && choice <= menu.length) {
+        const selectedItem = menu[choice - 1];
 
-          const amount = await askNumeral("Amount :");
-          if (isNaN(amount) || amount < 1) {
-            console.log("Input Amount and should be a number");
-            return await showItems(menu, categoryName);
-          }
-
-          addToCart({
-            name: selectedItem.name,
-            price: selectedItem.price,
-            amount: amount,
-            subtotal: amount * selectedItem.price,
-          });
-          console.log(`${selectedItem.name} x${amount} added successfully`);
-          await categoryMenu();
-        } else {
-          console.log("Invalid Items Option");
-          return showItems(menu, categoryName);
+        const amount = await askNumeral("Amount :");
+        if (isNaN(amount) || amount < 1) {
+          console.log("Input Amount and should be a number");
+          return await showItems(menu, categoryName);
         }
+
+        addToCart({
+          name: selectedItem.name,
+          price: selectedItem.price,
+          amount: amount,
+          subtotal: amount * selectedItem.price,
+        });
+        console.log(`${selectedItem.name} x${amount} added successfully`);
+        await categoryMenu();
+      } else {
+        console.log("Invalid Items Option");
+        return showItems(menu, categoryName);
+      }
     }
   } catch (error) {
     console.error(error);
