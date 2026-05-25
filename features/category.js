@@ -94,4 +94,4 @@ async function showItems(menu, categoryName) {
   }
 }
 
-export { categoryMenu };
+export { categoryMenu,showItems };

@@ -17,23 +17,23 @@ async function mainMenu() {
 
     const ans = await ask("select Option: ");
     switch (ans) {
-    case "1":
-      await categoryMenu();
-      break;
-    case "2":
-      await showCart();
-      break;
-    case "3":
-      await checkout();
-      break;
-    case "4":
-      console.log("Thank You, See You Again!");
-      close();
-      return;
-      break;
-    default:
-      console.log("Invalid Option!");
-      return mainMenu();
+      case "1":
+        await categoryMenu();
+        break;
+      case "2":
+        await showCart();
+        break;
+      case "3":
+        await checkout();
+        break;
+      case "4":
+        console.log("Thank You, See You Again!");
+        close();
+        return;
+        break;
+      default:
+        console.log("Invalid Option!");
+        return mainMenu();
     }
   } catch (error) {
     console.error(error);
