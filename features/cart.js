@@ -1,4 +1,3 @@
-import { mainMenu } from "../index.js";
 const cart = [];
 
 function calculateTotal() {
@@ -15,22 +14,33 @@ function isCartEmpty() {
 
 function printCart() {
   if (isCartEmpty()) {
-    console.log("cart is empty!");
-    return;
+    throw new Error("Cart is empty!");
   }
+
   cart.forEach((item, index) => {
-    console.log(`${index + 1} ${item.name} x ${item.amount} ${item.subtotal} `);
+    console.log(
+      `${index + 1} ${item.name} x ${item.amount} ${item.subtotal} `
+    );
   });
 }
 
 function showCart() {
   console.log("\n=== CART ===");
+
   if (isCartEmpty()) {
-    console.log("Cart can't be empty!");
-  } else {
-    printCart();
-    console.log(`Total: ${calculateTotal()}`);
+    throw new Error("Cart is empty!");
   }
+
+  printCart();
+
+  console.log(`Total: ${calculateTotal()}`);
 }
 
-export { cart, showCart, addToCart, calculateTotal, printCart, isCartEmpty };
+export {
+  cart,
+  showCart,
+  addToCart,
+  calculateTotal,
+  printCart,
+  isCartEmpty,
+};
