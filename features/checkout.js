@@ -1,34 +1,29 @@
-import { ask } from "../utils/input.js";
-import { cart, printCartAndTotal } from "./cart.js";
-import { mainMenu } from "../index.js";
+import { ask, askNumeral, close } from "../utils/input.js";
+import { calculateTotal, cart, isCartEmpty, printCart } from "./cart.js";
 import { categoryMenu } from "./category.js";
-import { payment } from "./payment.js";
 
 async function checkout() {
   try {
     console.log(`\n======== CHECKOUT ========`);
 
-    if (cart.length === 0) {
+    if (isCartEmpty()) {
       console.log("you have not order yet!");
-      return mainMenu();
+      return;
     }
 
-    printCartAndTotal();
+    printCart();
     console.log("===========================");
-    const askOrderedItem = await ask(
-      "Let us know if these are the correct items(y/n):  ",
-    );
-    switch (askOrderedItem) {
-    case "y":
-      return payment();
-      break;
-    case "n":
-      return categoryMenu();
-      break;
-    default:
-      console.log("Invalid Answer!");
+
+    const total = calculateTotal();
+    const payment = await askNumeral("Input Money: ");
+    if (payment < total) {
+      console.log(`Insufficient money! less Rp. ${total - payment}`);
       return checkout();
     }
+    const change = payment - total;
+    console.log(`change: ${change}`);
+    console.log("Thank You for Your Order!");
+    return true;
   } catch (error) {
     console.log(error);
     return checkout();
