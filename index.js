@@ -16,7 +16,7 @@ async function mainMenu() {
       console.log("4. Exit");
       console.log("===========================");
 
-      const ans = await askNumeral("Select Menu: ");
+      const ans = await ask("Select Menu: ");
 
       switch (ans) {
         case "1":
